@@ -11,6 +11,7 @@ import javax.swing.JTextField;
 import exceptions.UsuarioContraseñaIncorrectoException;
 import usuario.ControladorUsuarios;
 import usuario.Estudiante;
+import usuario.Profesor;
 import usuario.Usuario;
 
 @SuppressWarnings("serial")
@@ -50,7 +51,7 @@ public class VentanaLogin extends JFrame {
 				}
 				else
 				{
-					MenuProfesor menuProfesor = new MenuProfesor();
+					MenuProfesor menuProfesor = new MenuProfesor((Profesor) usuario);
 					menuProfesor.setVisible(true);
 					this.dispose();
 				}

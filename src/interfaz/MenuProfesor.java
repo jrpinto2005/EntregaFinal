@@ -5,8 +5,10 @@ import java.awt.GridLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 
+import usuario.Profesor;
+
 public class MenuProfesor extends JFrame {
-    public MenuProfesor() {
+    public MenuProfesor(Profesor profesor) {
         setTitle("Menu Profesor");
         setSize(400, 300);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -27,6 +29,19 @@ public class MenuProfesor extends JFrame {
             ventanaPrincipal.setVisible(true);
             this.dispose();
         });
+        
+        btnEditarPerfil.addActionListener( e ->{
+        	VentanaEditarPerfilProfesor ventanaEditar= new VentanaEditarPerfilProfesor(profesor, this);
+        	ventanaEditar.setVisible(true);
+        	this.setVisible(false);
+        });
+        
+        btnCrearLearningPath.addActionListener( e ->{
+        	VentanaCrearLP ventanaCrearLP= new VentanaCrearLP();
+        	ventanaCrearLP.setVisible(true);
+        	this.setVisible(false);
+        });
+
 
         // Añadir botones al frame
         add(btnCrearLearningPath);
