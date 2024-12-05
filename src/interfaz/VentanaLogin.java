@@ -8,9 +8,16 @@ import javax.swing.JLabel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
+import exceptions.UsuarioContraseñaIncorrectoException;
+import usuario.ControladorUsuarios;
+import usuario.Usuario;
+
 @SuppressWarnings("serial")
 public class VentanaLogin extends JFrame {
-    public VentanaLogin() {
+	private PanelIntentos panel;
+	public VentanaLogin() 
+    {
+    
         setTitle("Menu Ingresar");
         setSize(300, 200);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -30,6 +37,32 @@ public class VentanaLogin extends JFrame {
             ventanaPrincipal.setVisible(true);
             this.dispose();
         });
+        btnIngresar.addActionListener(e -> {
+        	txtUsuario.getText().trim();
+        	try {
+				Usuario usuario=ControladorUsuarios.getInstancia().iniciarSesion(txtUsuario.getText().trim(), String.valueOf(txtContrasena.getPassword()));
+				if (usuario.getTipoUsuario().equals("estudiante"))
+				{
+					MenuEstudiante menuEstudiante = new MenuEstudiante();
+					menuEstudiante.setVisible(true);
+					this.dispose();
+				}
+				else
+				{
+					MenuProfesor menuProfesor = new MenuProfesor();
+					menuProfesor.setVisible(true);
+					this.dispose();
+				}
+				
+        	} 
+        	
+            catch (UsuarioContraseñaIncorrectoException e1) 
+            {
+				// TODO Auto-generated catch block
+					panel = new PanelIntentos();
+	            	panel.setVisible(true);
+            
+            }});
 
         // Añadir componentes
         add(lblUsuario);
@@ -39,5 +72,4 @@ public class VentanaLogin extends JFrame {
         add(btnVolver);
         add(btnIngresar);
         
-    }
-}
+            }}
