@@ -5,6 +5,7 @@ import java.util.Collection;
 import java.util.List;
 
 import constructores.ControladorEnvios;
+import envios.EnvioQuiz;
 import envios.PreguntaAbierta;
 import envios.PreguntaEncuesta;
 import envios.PreguntaOpcionMultiple;
@@ -27,7 +28,7 @@ public class ConsolaEstudiantes extends ConsolaPrincipal
 		System.out.println("Consultando progreso de " + e.getNombre());
 		double progreso=e.verProgreso();
 		System.out.println("De los "+ e.getEnvios().size() + " que ha hecho el estudiante, han sido completados el "
-				+ progreso + "porciento");
+				+ 100*progreso + "porciento");
 	}
 	
 	public void actividadesSugeridasLP(Actividad a)
@@ -36,7 +37,7 @@ public class ConsolaEstudiantes extends ConsolaPrincipal
 		List <Actividad> actividades= a.getActividadesRecomendadas();
 		for (Actividad actividad: actividades)
 		{
-			System.out.println("Id actividad: " + actividad.getId() + " con el objetivo de:" + actividad.getObjetivo());
+			System.out.println("Id actividad: " + actividad.getId() + " con el objetivo de: " + actividad.getObjetivo());
 		}
 	}
 	
@@ -103,9 +104,11 @@ public class ConsolaEstudiantes extends ConsolaPrincipal
             respuestas.add(respuesta);
 		}
 		
-		env.hacerQuiz(e, act.getId(), respuestas);
+		EnvioQuiz envio = env.hacerQuiz(e, act.getId(), respuestas);
 		System.out.println("Envío realizado con exito");
-		//Hacer que se califique?
+		envio.calificarQuiz();
+		quiz.agregarActividadRecomendada(quiz);
+		
 		
 	}
 	

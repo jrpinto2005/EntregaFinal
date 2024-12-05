@@ -62,7 +62,7 @@ public class EnvioQuiz extends Envio {
 		}
 		this.puntaje = puntaje;
 		this.notaPorcentaje = puntaje / this.puntajeMaximo;
-		if (this.notaPorcentaje >= 3.0) {
+		if (this.notaPorcentaje >= 0.66) {
 			this.completado = true;
 		}
 	}
