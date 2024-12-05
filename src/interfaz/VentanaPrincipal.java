@@ -25,19 +25,6 @@ public class VentanaPrincipal extends JFrame {
     public VentanaPrincipal()
     {
     	guardado=false;
-		try {
-			CentralPersistencia.cargarSistema(DATOS1);
-		} catch (NumberFormatException | IOException | ParseException | ActivdadNoEcontradaException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-		File archivo2 = new File("datos/usuarios");
-		try {
-			UsuariosPersistencia.cargarSistema(DATOS2);
-		} catch (NumberFormatException | IOException | ParseException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
         setTitle("Bienvenido");
         setSize(400, 300);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -118,6 +105,18 @@ public class VentanaPrincipal extends JFrame {
         SwingUtilities.invokeLater(() -> {
             VentanaPrincipal ventana = new VentanaPrincipal();
             ventana.setVisible(true);
+            try {
+    			CentralPersistencia.cargarSistema(DATOS1);
+    		} catch (NumberFormatException | IOException | ParseException | ActivdadNoEcontradaException e1) {
+    			// TODO Auto-generated catch block
+    			e1.printStackTrace();
+    		}
+    		try {
+    			UsuariosPersistencia.cargarSistema(DATOS2);
+    		} catch (NumberFormatException | IOException | ParseException e1) {
+    			// TODO Auto-generated catch block
+    			e1.printStackTrace();
+    		}
         });
     }
 

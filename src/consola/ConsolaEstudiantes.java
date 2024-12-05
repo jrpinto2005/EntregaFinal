@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import javax.swing.JOptionPane;
+
 import constructores.ControladorEnvios;
 import envios.EnvioQuiz;
 import envios.PreguntaAbierta;
@@ -46,7 +48,7 @@ public class ConsolaEstudiantes extends ConsolaPrincipal
 		System.out.println("Revisando que el estudiante no este inscrito en el LP " + lp.getTitulo());
 		if (e.inscribirseEnLearningPath(lp)==false)
 		{
-			System.out.println("El estudiante ya está inscrito al LearningPath"+ lp.getTitulo());
+			JOptionPane.showMessageDialog(null, "Ya estaba inscrito en este LP", "Error!", JOptionPane.INFORMATION_MESSAGE);
 		}
 		else
 		{
