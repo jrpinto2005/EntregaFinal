@@ -45,6 +45,21 @@ public class MenuEstudiante extends JFrame {
     			JOptionPane.showMessageDialog(null, "Fue inscirto correctamente a " + respuesta, "Exito!", JOptionPane.INFORMATION_MESSAGE);
     		}
         });
+        
+        btnEditarPerfil.addActionListener(e -> {
+        	VentanaEditarPerfil ventanaEditar= new VentanaEditarPerfil(estudiante, this);
+        	ventanaEditar.setVisible(true);
+        	this.setVisible(false);
+        });
+        
+        btnConsultarProgreso.addActionListener(e -> {
+        	double progreso=estudiante.verProgreso();
+        	JOptionPane.showMessageDialog(null, "De los "+ estudiante.getEnvios().size() + " que has hecho, han sido completados el "
+        		+ 100*progreso + "porciento", "Exito!", JOptionPane.INFORMATION_MESSAGE);
+        	
+        });
+        
+        
 
 
         // Añadir botones al frame
