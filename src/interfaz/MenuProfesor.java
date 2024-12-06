@@ -37,8 +37,14 @@ public class MenuProfesor extends JFrame {
         });
         
         btnCrearLearningPath.addActionListener( e ->{
-        	VentanaCrearLP ventanaCrearLP= new VentanaCrearLP();
+        	VentanaCrearLP ventanaCrearLP= new VentanaCrearLP(this, profesor);
         	ventanaCrearLP.setVisible(true);
+        	this.setVisible(false);
+        });
+        
+        btnClonarActividad.addActionListener( e ->{
+        	VentanaClonarActividad ventanaClonar= new VentanaClonarActividad(this);
+        	ventanaClonar.setVisible(true);
         	this.setVisible(false);
         });
 

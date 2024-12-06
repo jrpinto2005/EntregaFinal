@@ -3,6 +3,7 @@ package interfaz;
 import javax.swing.*;
 
 import constructores.ConstructorLearningPath;
+import usuario.Profesor;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -18,8 +19,9 @@ public class VentanaCrearLP extends JFrame {
     private JTextField txtFechaModificacion;
     private JTextField txtObjetivo;
     private JButton btnCrear;
-
-    public VentanaCrearLP() {
+    private JButton btnSalir;
+    
+    public VentanaCrearLP(MenuProfesor menu,Profesor profesor) {
         setTitle("Crear Learning Path");
         setSize(400, 500);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); 
@@ -59,7 +61,8 @@ public class VentanaCrearLP extends JFrame {
         btnCrear = new JButton("Crear Learning Path");
         add(btnCrear);
 
-        add(new JLabel(""));
+        btnSalir = new JButton("Salir");
+        add(btnSalir);
 
         btnCrear.addActionListener(new ActionListener() {
             @Override
@@ -82,13 +85,17 @@ public class VentanaCrearLP extends JFrame {
                     new Date(), 
                     new Date(), 
                     1, 
-                    "idProfesor", 
+                    profesor.getId(), 
                     objetivo,
                     0.0 
                 );
 
                 JOptionPane.showMessageDialog(VentanaCrearLP.this, "Learning Path creado exitosamente");
             }
+        });
+        btnSalir.addActionListener(e ->{
+        	 this.dispose(); 
+             menu.setVisible(true);
         });
     }
 }
