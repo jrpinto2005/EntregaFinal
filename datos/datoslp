@@ -1,6 +1,8 @@
-lp,Java,Este LP ayuda a aprender java,3,3,4,2005-05-22,2024-11-12,8,profe1,Programar en java,3.5
-lp,GithubEnEclipse,Aprender a merge en github,5,200,0,2025-11-17,2024-11-17,1,profe1,aprender github,0.0
-lp,Python,Aprender a programar en python,2,3,0,2025-11-17,2024-11-17,2,profe1,Lograr escribir un programa en python,0.0
+lp,Java,Este LP ayuda a aprender java,3,3,4,2005-05-22,2024-11-12,13,profe1,Programar en java,3.5
+lp,GithubEnEclipse,Aprender a merge en github,5,80,0,2025-11-17,2024-11-17,8,profe1,aprender github,0.0
+lp,Python,Aprender a programar en python,2,3,0,2025-11-17,2024-11-17,7,profe1,Lograr escribir un programa en python,0.0
+encuesta,kk,kk,kk,2024-12-07,2025-01-10,30,1,0.0,Encuesta,true,GithubEnEclipse,5
+preguntae,jajajaj,1,GithubEnEclipse.kk
 quiz,Quiz sobre java,aprender las bases de java,Java.quiz1,2024-05-22,2024-06-23,3,4,0.0,Quiz,true,Python,3
 preguntam, Cual de estos no es un tipo en java?,1,Python.Java.quiz1
 opcionm,Boolean,false,0,Python.Java.quiz1,0
@@ -17,6 +19,16 @@ opcionm,C,false,0,Python.Java.quiz1,2
 opcionm,Java,true,1,Python.Java.quiz1,2
 opcionm,Assembly,false,2,Python.Java.quiz1,2
 opcionm,Python,false,3,Python.Java.quiz1,2
+examen,Esto es para probar hacer un examen,probar hacer examen,examen prueba,2024-12-07,2025-01-10,30,1,0.0,Examen,false,GithubEnEclipse,10
+preguntaa,Hay mas patas o ojos en el mundo?,1,8.0,GithubEnEclipse.examen prueba
+preguntaa,Como me llamo?,2,2.0,GithubEnEclipse.examen prueba
+quiz,Actividad de prueba,probar,prueba JR,2024-12-07,2025-01-10,50,4,0.0,Quiz,true,GithubEnEclipse,2
+preguntam,Cuantos años tengo,1,GithubEnEclipse.prueba JR
+opcionm,18,false,0,GithubEnEclipse.prueba JR,0
+opcionm,19,true,1,GithubEnEclipse.prueba JR,0
+preguntam,cual es mi color favorito,2,GithubEnEclipse.prueba JR
+opcionm,,false,0,GithubEnEclipse.prueba JR,1
+opcionm,,false,1,GithubEnEclipse.prueba JR,1
 quiz,Quiz sobre java,aprender las bases de java,quiz1,2024-05-22,2024-06-23,3,4,3.5,Quiz,true,Java,3
 preguntam, Cual de estos no es un tipo en java?,1,Java.quiz1
 opcionm,Boolean,false,0,Java.quiz1,0

@@ -255,6 +255,7 @@ public class CentralPersistencia {
 					bw.write("Encuesta,");
 					bw.write(String.valueOf(acttemp.isObligatoria()) + ",");
 					bw.write(acttemp.getLearningPath().getTitulo() + ",");
+					bw.write(String.valueOf(((Encuesta) acttemp).getPuntajeMaximo()));
 					bw.newLine();
 					Collection<PreguntaEncuesta> preguntase = ((Encuesta) acttemp).getPreguntas();
 					for (PreguntaEncuesta preguntae: preguntase)
