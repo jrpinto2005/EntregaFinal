@@ -56,7 +56,7 @@ public class LearningPath {
 		return nivelDificultad;
 	}
 
-	public void setNivelDificultad(int nivelDificultad) {
+	public void setNivelDificultad(Integer nivelDificultad) {
 		this.nivelDificultad = nivelDificultad;
 	}
 
@@ -76,7 +76,7 @@ public class LearningPath {
 		return nivelDificultad;
 	}
 
-	public void setNivelDificutad(int nivelDificutad) {
+	public void setNivelDificutad(Integer nivelDificutad) {
 		this.nivelDificultad = nivelDificutad;
 	}
 

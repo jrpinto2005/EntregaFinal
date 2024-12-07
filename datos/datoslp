@@ -1,6 +1,6 @@
-lp,Java,Este LP ayuda a aprender java,3,3,4,2005-05-22,2024-11-12,13,profe1,Programar en java,3.5
-lp,GithubEnEclipse,Aprender a merge en github,5,80,0,2025-11-17,2024-11-17,8,profe1,aprender github,0.0
-lp,Python,Aprender a programar en python,2,3,0,2025-11-17,2024-11-17,7,profe1,Lograr escribir un programa en python,0.0
+lp,Java,Este LP ayuda a aprender java,3,3,4,2005-05-22,2024-11-12,28,profe1,Programar en java,3.5
+lp,GithubEnEclipse,Como hacer merging en Eclipse,3,200,0,2024-12-12,2024-11-17,78,profe1,aprender a hacer muchas cosas en git,0.0
+lp,Python,Aprender a programar en python,2,3,0,2025-11-17,2024-11-17,22,profe1,Lograr escribir un programa en python,0.0
 encuesta,kk,kk,kk,2024-12-07,2025-01-10,30,1,0.0,Encuesta,true,GithubEnEclipse,5
 preguntae,jajajaj,1,GithubEnEclipse.kk
 quiz,Quiz sobre java,aprender las bases de java,Java.quiz1,2024-05-22,2024-06-23,3,4,0.0,Quiz,true,Python,3
@@ -29,6 +29,15 @@ opcionm,19,true,1,GithubEnEclipse.prueba JR,0
 preguntam,cual es mi color favorito,2,GithubEnEclipse.prueba JR
 opcionm,,false,0,GithubEnEclipse.prueba JR,1
 opcionm,,false,1,GithubEnEclipse.prueba JR,1
+quiz,kskskkd,majsjd,majshdb,2024-12-12,2025-12-12,30,3,0.0,Quiz,true,GithubEnEclipse,2
+preguntam,esto es una pregunta,1,GithubEnEclipse.majshdb
+opcionm,azul,false,0,GithubEnEclipse.majshdb,0
+opcionm,rojo,false,1,GithubEnEclipse.majshdb,0
+opcionm,verde,true,2,GithubEnEclipse.majshdb,0
+opcionm,blanco,false,3,GithubEnEclipse.majshdb,0
+preguntam,jajsa,2,GithubEnEclipse.majshdb
+opcionm,jkaj,false,0,GithubEnEclipse.majshdb,1
+opcionm,aa,true,1,GithubEnEclipse.majshdb,1
 quiz,Quiz sobre java,aprender las bases de java,quiz1,2024-05-22,2024-06-23,3,4,3.5,Quiz,true,Java,3
 preguntam, Cual de estos no es un tipo en java?,1,Java.quiz1
 opcionm,Boolean,false,0,Java.quiz1,0
@@ -45,3 +54,13 @@ opcionm,C,false,0,Java.quiz1,2
 opcionm,Java,true,1,Java.quiz1,2
 opcionm,Assembly,false,2,Java.quiz1,2
 opcionm,Python,false,3,Java.quiz1,2
+web,kaajdj,jdjdjd,null,2024-12-12,2025-12-12,30,1,0.0,Web,true,GithubEnEclipse,www.github.com
+quiz,act1,act1,act1,2024-12-12,2025-01-10,30,1,0.0,Quiz,true,GithubEnEclipse,2
+preguntam,pregunta 1,1,GithubEnEclipse.act1
+opcionm,Julián,true,0,GithubEnEclipse.act1,0
+opcionm,Julian,false,1,GithubEnEclipse.act1,0
+preguntam,Cual no esta en el arcoriris,2,GithubEnEclipse.act1
+opcionm,azul,false,0,GithubEnEclipse.act1,1
+opcionm,rojo,false,1,GithubEnEclipse.act1,1
+opcionm,verde,false,2,GithubEnEclipse.act1,1
+opcionm,cafe,true,3,GithubEnEclipse.act1,1
