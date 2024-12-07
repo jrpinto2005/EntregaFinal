@@ -20,6 +20,12 @@ public class RecursoEducativo extends Actividad {
 		}
 
 	}
+
+	public String getContenido() {
+		return contenido;
+	}
+	
+	
 	
 	
 
