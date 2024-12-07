@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import javax.swing.JOptionPane;
-
 import constructores.ControladorEnvios;
 import envios.EnvioQuiz;
 import envios.PreguntaAbierta;

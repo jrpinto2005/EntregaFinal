@@ -20,4 +20,9 @@ public class Tarea extends Actividad {
 		}
 
 	}
+
+	public String getContenido() {
+		return contenido;
+	}
+	
 }

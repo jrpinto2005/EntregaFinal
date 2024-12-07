@@ -1,6 +1,22 @@
-lp,Java,Este LP ayuda a aprender java,3,3,4,2005-05-22,2024-11-12,23,profe1,Programar en java,3.5
+lp,Java,Este LP ayuda a aprender java,3,3,4,2005-05-22,2024-11-12,8,profe1,Programar en java,3.5
 lp,GithubEnEclipse,Aprender a merge en github,5,200,0,2025-11-17,2024-11-17,1,profe1,aprender github,0.0
-lp,Python,Aprender a programar en python,2,100,0,2025-11-17,2024-11-17,1,profe1,Lograr escribir un programa en python,0.0
+lp,Python,Aprender a programar en python,2,3,0,2025-11-17,2024-11-17,2,profe1,Lograr escribir un programa en python,0.0
+quiz,Quiz sobre java,aprender las bases de java,Java.quiz1,2024-05-22,2024-06-23,3,4,0.0,Quiz,true,Python,3
+preguntam, Cual de estos no es un tipo en java?,1,Python.Java.quiz1
+opcionm,Boolean,false,0,Python.Java.quiz1,0
+opcionm,String,false,1,Python.Java.quiz1,0
+opcionm,Float,true,2,Python.Java.quiz1,0
+opcionm,Double,false,3,Python.Java.quiz1,0
+preguntam, De que lenguaje es este curso?,2,Python.Java.quiz1
+opcionm,C,false,0,Python.Java.quiz1,1
+opcionm,Java,true,1,Python.Java.quiz1,1
+opcionm,Assembly,false,2,Python.Java.quiz1,1
+opcionm,Python,false,3,Python.Java.quiz1,1
+preguntam, Cual es su lenguaje favorito?,3,Python.Java.quiz1
+opcionm,C,false,0,Python.Java.quiz1,2
+opcionm,Java,true,1,Python.Java.quiz1,2
+opcionm,Assembly,false,2,Python.Java.quiz1,2
+opcionm,Python,false,3,Python.Java.quiz1,2
 quiz,Quiz sobre java,aprender las bases de java,quiz1,2024-05-22,2024-06-23,3,4,3.5,Quiz,true,Java,3
 preguntam, Cual de estos no es un tipo en java?,1,Java.quiz1
 opcionm,Boolean,false,0,Java.quiz1,0

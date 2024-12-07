@@ -51,6 +51,18 @@ public class Actividad {
 	
 	
 
+	public String getNombre() {
+		return nombre;
+	}
+
+
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+
+
 	public List<Actividad> getActividadesRecomendadas() {
 		return this.actividadesRecomendadas;
 	}
