@@ -53,6 +53,8 @@ public class VentanaClonarActividad extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				clonarActividad();
 				menu.setVisible(true);
+				frame.dispose();
+				
 			}
 		});
 

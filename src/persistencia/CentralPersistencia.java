@@ -186,7 +186,7 @@ public class CentralPersistencia {
 					bw.write("quiz,");
 					bw.write(acttemp.getDescripcion() + ",");
 					bw.write(acttemp.getObjetivo() + ",");
-					bw.write(act.split("\\.")[act.split("\\.").length - 1] + ",");
+					bw.write(act.replaceAll(act.split("\\.")[0], "").substring(1) + ",");
 					bw.write(formato.format(acttemp.getFechaInicio()) + ",");
 					bw.write(formato.format(acttemp.getFechaFin()) + ",");
 					bw.write(String.valueOf(acttemp.getDuracion()) + ",");
@@ -221,7 +221,7 @@ public class CentralPersistencia {
 					bw.write("examen,");
 					bw.write(acttemp.getDescripcion() + ",");
 					bw.write(acttemp.getObjetivo() + ",");
-					bw.write(act.split("\\.")[act.split("\\.").length-1] + ",");
+					bw.write(act.replaceAll(act.split("\\.")[0], "").substring(1) + ",");
 					bw.write(formato.format(acttemp.getFechaInicio()) + ",");
 					bw.write(formato.format(acttemp.getFechaFin()) + ",");
 					bw.write(String.valueOf(acttemp.getDuracion()) + ",");
@@ -246,7 +246,7 @@ public class CentralPersistencia {
 					bw.write("encuesta,");
 					bw.write(acttemp.getDescripcion() + ",");
 					bw.write(acttemp.getObjetivo() + ",");
-					bw.write(act.split("\\.")[act.split("\\.").length-1] + ",");
+					bw.write(act.replaceAll(act.split("\\.")[0], "").substring(1) + ",");
 					bw.write(formato.format(acttemp.getFechaInicio()) + ",");
 					bw.write(formato.format(acttemp.getFechaFin()) + ",");
 					bw.write(String.valueOf(acttemp.getDuracion()) + ",");
@@ -269,7 +269,7 @@ public class CentralPersistencia {
 					bw.write("web,");
 					bw.write(acttemp.getDescripcion() + ",");
 					bw.write(acttemp.getObjetivo() + ",");
-					bw.write(act.split("\\.")[act.split("\\.").length-1] + ",");
+					bw.write(act.replaceAll(act.split("\\.")[0], "").substring(1) + ",");
 					bw.write(formato.format(acttemp.getFechaInicio()) + ",");
 					bw.write(formato.format(acttemp.getFechaFin()) + ",");
 					bw.write(String.valueOf(acttemp.getDuracion()) + ",");
@@ -284,7 +284,7 @@ public class CentralPersistencia {
 					bw.write("video,");
 					bw.write(acttemp.getDescripcion() + ",");
 					bw.write(acttemp.getObjetivo() + ",");
-					bw.write(act.split("\\.")[act.split("\\.").length-1] + ",");
+					bw.write(act.replaceAll(act.split("\\.")[0], "").substring(1) + ",");
 					bw.write(formato.format(acttemp.getFechaInicio()) + ",");
 					bw.write(formato.format(acttemp.getFechaFin()) + ",");
 					bw.write(String.valueOf(acttemp.getDuracion()) + ",");
@@ -299,7 +299,7 @@ public class CentralPersistencia {
 					bw.write("lectura,");
 					bw.write(acttemp.getDescripcion() + ",");
 					bw.write(acttemp.getObjetivo() + ",");
-					bw.write(act.split("\\.")[act.split("\\.").length-1] + ",");
+					bw.write(act.replaceAll(act.split("\\.")[0], "").substring(1) + ",");
 					bw.write(formato.format(acttemp.getFechaInicio()) + ",");
 					bw.write(formato.format(acttemp.getFechaFin()) + ",");
 					bw.write(String.valueOf(acttemp.getDuracion()) + ",");
@@ -310,8 +310,9 @@ public class CentralPersistencia {
 					bw.write(acttemp.getLearningPath().getTitulo() + ",");
 					bw.newLine();
 				}
-				bw.close();
+				
 			}
+			bw.close();
 		}
 
 	}
