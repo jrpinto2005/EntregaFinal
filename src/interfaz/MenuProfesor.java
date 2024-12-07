@@ -16,7 +16,7 @@ public class MenuProfesor extends JFrame {
         setSize(400, 300);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
-        setLayout(new GridLayout(3, 2, 10, 10));
+        setLayout(new GridLayout(4, 2, 10, 10));
 
         // Crear botones
         JButton btnCrearLearningPath = new JButton("Crear LearningPath");
@@ -24,6 +24,7 @@ public class MenuProfesor extends JFrame {
         JButton btnCrearActividad = new JButton("Crear Actividad");
         JButton btnClonarActividad = new JButton("Clonar Actividad");
         JButton btnEditarPerfil = new JButton("Editar Perfil");
+        JButton btnCorregirExamen = new JButton("Corregir Examen");
         JButton btnSalir = new JButton("Salir");
 
         // Acción del botón Salir
@@ -64,6 +65,12 @@ public class MenuProfesor extends JFrame {
         	ventanaEditarLP.setVisible(true);
         	this.setVisible(false);
         });
+        
+        btnCorregirExamen.addActionListener(e -> {
+        	VentanaSeleccionEnvio ventanaSeleccion= new VentanaSeleccionEnvio(profesor, this);
+        	ventanaSeleccion.setVisible(true);
+        	this.setVisible(false);
+        });
 
 
 
@@ -73,6 +80,7 @@ public class MenuProfesor extends JFrame {
         add(btnCrearActividad);
         add(btnClonarActividad);
         add(btnEditarPerfil);
+        add(btnCorregirExamen);
         add(btnSalir);
     }
 }

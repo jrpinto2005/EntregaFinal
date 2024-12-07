@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import constructores.ConstructorLearningPath;
@@ -11,12 +12,14 @@ import exceptions.ProfesorNoCreadorException;
 import learningPaths.LearningPath;
 
 public class VentanaEditarLP extends JFrame {
-    private JComboBox<String> cmbAtributo;
-    private JTextField txtValorNuevo;
-    private JButton btnGuardar;
-    private JButton btnSalir;
+	private JComboBox<String> cmbAtributo;
+	private JTextField txtValorNuevo;
+	private JButton btnGuardar;
+	private JButton btnSalir;
+	
 
-    public VentanaEditarLP(LearningPath lp, String idProfesor, MenuProfesor menu) {
+	public VentanaEditarLP(LearningPath lp, String idProfesor, MenuProfesor menu) {
+		SimpleDateFormat formato = new SimpleDateFormat("dd-MM-yyyy");
         setTitle("Editar Learning Path");
         setSize(400, 300);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -54,26 +57,35 @@ public class VentanaEditarLP extends JFrame {
                 Object valorNuevo = null;
 
                 try {
-                    switch (atributo) {
-                        case "Titulo":
-                        case "DescripcionGeneral":
-                        case "Objetivos":
+                	ConstructorLearningPath constructor = new ConstructorLearningPath();
+                    if(atributo.equals("Titulo")|| atributo.equals("DescripcionGeneral") || atributo.equals("Objetivos") )
+                    {
                             valorNuevo = valorNuevoStr;
-                            break;
-                        case "NivelDificultad":
-                            valorNuevo = Integer.parseInt(valorNuevoStr);
-                            break;
-                        case "FechaDuracion":
-                        case "FechaModificacion":
-                            valorNuevo = new Date(valorNuevoStr); 
-                            break;
+                            constructor.editarLP(lp, atributo, valorNuevo, idProfesor);
+                            JOptionPane.showMessageDialog(VentanaEditarLP.this, "Atributo actualizado con éxito.");
+                            dispose();
+                            menu.setVisible(true);
+                    }
+                    else if (atributo.equals("NivelDificultad"))
+                    {
+                            Integer temporal = Integer.parseInt(valorNuevoStr);
+                            constructor.editarLP(lp, atributo, temporal, idProfesor);
+                            JOptionPane.showMessageDialog(VentanaEditarLP.this, "Atributo actualizado con éxito.");
+                            dispose();
+                            menu.setVisible(true);
+                            
+                    }
+                    else if (atributo.equals("FechaDuracion") || atributo.equals("FechaModificacion") )
+                    {
+                    	Date temporal = formato.parse(valorNuevoStr); 
+                    	constructor.editarLP(lp, atributo, temporal, idProfesor);
+                    	 JOptionPane.showMessageDialog(VentanaEditarLP.this, "Atributo actualizado con éxito.");
+                         dispose();
+                         menu.setVisible(true);
                     }
 
-                    ConstructorLearningPath constructor = new ConstructorLearningPath();
-                    constructor.editarLP(lp, atributo, valorNuevo, idProfesor);
 
-                    JOptionPane.showMessageDialog(VentanaEditarLP.this, "Atributo actualizado con éxito.");
-                    dispose();
+                 
                 } catch (NumberFormatException ex) {
                     JOptionPane.showMessageDialog(VentanaEditarLP.this, "El valor ingresado no es válido para el atributo seleccionado.", "Error", JOptionPane.ERROR_MESSAGE);
                 } catch (ProfesorNoCreadorException ex) {
@@ -84,8 +96,5 @@ public class VentanaEditarLP extends JFrame {
             }
         });
 
-        btnSalir.addActionListener(e -> dispose());
-        menu.setVisible(true);
-    }
+	btnSalir.addActionListener(e->dispose());menu.setVisible(true);}
 }
-

@@ -122,15 +122,15 @@ public class VentanaCrearActividad extends JFrame {
 						ConstructorTarea constructor = new ConstructorTarea();
 						Tarea tarea = constructor.crearTarea(descripcionGeneral, objetivo, nombre, fechaInicio,
 								fechaFin, duracion, dificultad, 0, tipoDeActividad, isObligatoria, idLearningPath);
-						String contenido= JOptionPane.showInputDialog(this, "Ingrese el contenido de la tarea, esto es lo que verá el estudiante");
-						tarea.setContenido(contenido);
+						VentanaCrearTarea ventanaTarea= new  VentanaCrearTarea(menu, tarea);
+						ventanaTarea.setVisible(true);
 					} else if (tipoDeActividad.equals("Recurso Educativo")) {
 						ConstructorRecursoEducativo constructor = new ConstructorRecursoEducativo();
 						RecursoEducativo recurso = constructor.crearRecursoEducativo(descripcionGeneral, objetivo,
 								nombre, fechaInicio, fechaFin, duracion, dificultad, 0, tipoDeActividad, isObligatoria,
 								idLearningPath);
-						String contenido= JOptionPane.showInputDialog(this, "Ingrese el contenido del recurso, esto es lo que verá el estudiante");
-						recurso.setContenido(contenido);
+						VentanaRecursoEducativo ventanaRecurso= new  VentanaRecursoEducativo(menu, recurso);
+						ventanaRecurso.setVisible(true);
 					} else if (tipoDeActividad.equals("Encuesta")) {
 						int puntajeMaximo = pedirEnteroAlUsuario("¿Cuántas preguntas tendrá la encuesta?") * 5;
 						ConstructorEncuesta constructor = new ConstructorEncuesta();
