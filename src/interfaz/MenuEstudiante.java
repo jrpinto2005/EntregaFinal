@@ -59,7 +59,7 @@ public class MenuEstudiante extends JFrame {
         	
         });
         btnHacerActividad.addActionListener(e -> {
-        	VentanaSeleccionActividad ventanaSeleccion = new VentanaSeleccionActividad(estudiante);
+        	VentanaSeleccionActividad ventanaSeleccion = new VentanaSeleccionActividad(estudiante,this);
         	ventanaSeleccion.setVisible(true);
         	this.setVisible(false);
         });

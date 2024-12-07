@@ -22,9 +22,10 @@ import java.util.List;
 public class VentanaSeleccionActividad extends JFrame {
     private JList<String> listaActividades;
     private JButton btnSeleccionar;
+    private JButton btnVolver;
     private JLabel lblResultado;
 
-    public VentanaSeleccionActividad(Estudiante estudiante) {
+    public VentanaSeleccionActividad(Estudiante estudiante,MenuEstudiante menu) {
         // Usar un conjunto para evitar duplicados
         List<String> actividades = new ArrayList<>();
         
@@ -68,8 +69,9 @@ public class VentanaSeleccionActividad extends JFrame {
         add(scrollPane, BorderLayout.CENTER);
 
         // Panel inferior con botón y resultado
-        JPanel panelInferior = new JPanel(new BorderLayout(10, 10));
+        JPanel panelBotones = new JPanel(new FlowLayout(FlowLayout.CENTER, 20, 10));
         btnSeleccionar = new JButton("Seleccionar");
+        btnVolver = new JButton("Volver");
         lblResultado = new JLabel("", SwingConstants.CENTER);
         lblResultado.setFont(new Font("Arial", Font.ITALIC, 14));
         lblResultado.setForeground(Color.BLUE);
@@ -117,11 +119,17 @@ public class VentanaSeleccionActividad extends JFrame {
                 }
             
         });
+        btnVolver.addActionListener(e-> {
+        	setVisible(false);
+            menu.setVisible(true);
+            dispose();
+        });
 
         // Añadir componentes al panel inferior
-        panelInferior.add(btnSeleccionar, BorderLayout.NORTH);
-        panelInferior.add(lblResultado, BorderLayout.CENTER);
+        panelBotones.add(btnSeleccionar, BorderLayout.NORTH);
+        panelBotones.add(btnVolver, BorderLayout.NORTH);
+        panelBotones.add(lblResultado, BorderLayout.CENTER);
 
-        add(panelInferior, BorderLayout.SOUTH);
+        add(panelBotones, BorderLayout.SOUTH);
     }
 }

@@ -33,6 +33,10 @@ public class Examen extends Actividad {
 	public Collection<PreguntaAbierta> getPreguntas() {
 		return preguntas.values();
 	}
+	public Map<Integer,PreguntaAbierta> getMapaPreguntas() {
+		return preguntas;
+	}
+	
 
 	public void addPregunta(PreguntaAbierta p) {
 

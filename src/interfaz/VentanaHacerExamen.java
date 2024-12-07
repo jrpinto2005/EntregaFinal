@@ -1,13 +1,18 @@
 package interfaz;
 
 import javax.swing.*;
+
+import constructores.ControladorEnvios;
 import usuario.Estudiante;
 import learningPaths.Examen;
 import envios.Pregunta;
+import exceptions.ActivdadNoEcontradaException;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
 
 @SuppressWarnings("serial")
 public class VentanaHacerExamen extends JFrame {
@@ -15,6 +20,7 @@ public class VentanaHacerExamen extends JFrame {
     private Examen examen;
     private Estudiante estudiante;
     private VentanaSeleccionActividad ventanaSeleccionActividad;
+    private List<String> respuestas;
 
     private JLabel lblPregunta;
     private JTextField txtRespuesta;
@@ -26,6 +32,8 @@ public class VentanaHacerExamen extends JFrame {
         this.estudiante = estudiante;
         this.ventanaSeleccionActividad = ventanaSeleccionActividad;
         this.indicePreguntaActual = 0;
+        this.respuestas= new ArrayList<String>();
+
 
         // Configuración inicial de la ventana
         setTitle("Hacer Examen");
@@ -69,7 +77,7 @@ public class VentanaHacerExamen extends JFrame {
         btnSiguiente.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                guardarRespuestaActual();
+                respuestas.add(txtRespuesta.getText());
                 if (indicePreguntaActual < examen.getPreguntas().size() - 1) {
                     indicePreguntaActual++;
                     mostrarPregunta();
@@ -87,23 +95,27 @@ public class VentanaHacerExamen extends JFrame {
      * Muestra la pregunta actual en la ventana.
      */
     private void mostrarPregunta() {
-        Pregunta preguntaActual = examen.getPreguntas().
-        lblPregunta.setText("<html>" + (indicePreguntaActual + 1) + ". " + preguntaActual.getTexto() + "</html>");
+        Pregunta preguntaActual = examen.getMapaPreguntas().get(indicePreguntaActual+1);
+        lblPregunta.setText("<html>" + (indicePreguntaActual ) + ". " + preguntaActual.getTextoPregunta() + "</html>");
         txtRespuesta.setText(""); // Limpiar el campo de texto
     }
 
     /**
      * Guarda la respuesta actual en la pregunta correspondiente.
      */
-    private void guardarRespuestaActual() {
-        Pregunta preguntaActual = examen.getPreguntas().get(indicePreguntaActual);
-        preguntaActual.setRespuesta(txtRespuesta.getText());
-    }
+
 
     /**
      * Finaliza el examen, mostrando un mensaje de confirmación y regresando a la ventana de selección.
      */
     private void finalizarExamen() {
+        ControladorEnvios env= new ControladorEnvios();
+        try {
+			env.hacerExamen(estudiante, examen.getId() , respuestas);
+		} catch (ActivdadNoEcontradaException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
         JOptionPane.showMessageDialog(
                 this,
                 "Examen completado. Gracias por responder.",
