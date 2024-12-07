@@ -58,6 +58,11 @@ public class MenuEstudiante extends JFrame {
         		+ 100*progreso + "porciento", "Exito!", JOptionPane.INFORMATION_MESSAGE);
         	
         });
+        btnHacerActividad.addActionListener(e -> {
+        	VentanaSeleccionActividad ventanaSeleccion = new VentanaSeleccionActividad(estudiante,this);
+        	ventanaSeleccion.setVisible(true);
+        	this.setVisible(false);
+        });
         
         
 
