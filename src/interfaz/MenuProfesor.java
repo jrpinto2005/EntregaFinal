@@ -4,8 +4,11 @@ import java.awt.GridLayout;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
+import learningPaths.LearningPath;
 import usuario.Profesor;
+import usuario.Sistema;
 
 public class MenuProfesor extends JFrame {
     public MenuProfesor(Profesor profesor) {
@@ -47,6 +50,21 @@ public class MenuProfesor extends JFrame {
         	ventanaClonar.setVisible(true);
         	this.setVisible(false);
         });
+        
+        btnCrearActividad.addActionListener( e ->{
+        	VentanaCrearActividad ventanaCrearActividad= new VentanaCrearActividad(this);
+        	ventanaCrearActividad.setVisible(true);
+        	this.setVisible(false);
+        });
+        
+        btnEditarLearningPath.addActionListener( e ->{
+        	String lp = JOptionPane.showInputDialog(this, "Ingrese le nombre del lp a editar");
+        	LearningPath LP=Sistema.getInstancia().encontrarLP(lp);
+        	VentanaEditarLP ventanaEditarLP= new VentanaEditarLP(LP, profesor.getId(), this);
+        	ventanaEditarLP.setVisible(true);
+        	this.setVisible(false);
+        });
+
 
 
         // Añadir botones al frame
