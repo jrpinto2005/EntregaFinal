@@ -11,6 +11,7 @@ public class RespuestaAbierta {
 		this.puntaje = puntaje;
 		this.contenido = contenido;
 		this.valor = d;
+		this.pregunta=pregunta;
 	}
 
 	public int getPuntaje() {
