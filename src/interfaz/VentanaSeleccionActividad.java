@@ -7,6 +7,7 @@ import learningPaths.Encuesta;
 import learningPaths.Examen;
 import learningPaths.LearningPath;
 import learningPaths.Lectura;
+import learningPaths.Quiz;
 import learningPaths.RecursoEducativo;
 import learningPaths.Tarea;
 import usuario.Estudiante;
@@ -105,6 +106,14 @@ public class VentanaSeleccionActividad extends JFrame {
                     	VentanaHacerExamen ventanaExamen = new VentanaHacerExamen(examen,estudiante,this);
                     	this.setVisible(false);
                     	ventanaExamen.setVisible(true);
+                    	
+                    }
+                    else if (actividad.getTipoActividad().equals("Quiz"))
+                    {
+                    	Quiz quiz = (Quiz) actividad;
+                    	VentanaHacerQuiz ventanaQuiz = new VentanaHacerQuiz(quiz,estudiante,this);
+                    	this.setVisible(false);
+                    	ventanaQuiz.setVisible(true);
                     	
                     }
                     

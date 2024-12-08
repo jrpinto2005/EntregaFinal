@@ -33,6 +33,9 @@ public class Quiz extends Actividad {
 	public Collection<PreguntaOpcionMultiple> getPreguntas() {
 		return preguntas.values();
 	}
+	public Map<Integer,PreguntaOpcionMultiple> getMapaPreguntas() {
+		return preguntas;
+	}
 
 	public void addPregunta(PreguntaOpcionMultiple p) {
 
