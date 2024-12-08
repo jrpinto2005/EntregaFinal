@@ -34,6 +34,10 @@ public class EnvioExamen extends Envio {
 	public List<RespuestaAbierta> getRespuestas() {
 		return respuestas;
 	}
+	public double getPuntaje()
+	{
+		return puntaje;
+	}
 
 	
 	

@@ -2,6 +2,10 @@ profesor,Interfaz,profei,interfaz@uniandes,9876
 profesor,Profesor,profeprueba,x,x
 profesor,Mario,profe1,prueba@gmail.com,12345
 estudiante,Julian2,estu2,julian2,54321
+estu2,:,;
 estudiante,Julian,estu1,correoprueba@gmail.com,54321
+estu1,:Java:GithubEnEclipse:,;Quiz<>Java.quiz1<>2><1><1><;Examen<>GithubEnEclipse.examen prueba<>Patas><Julian><<>true<>10.0;Encuesta<>GithubEnEclipse.kk<>4><;
 estudiante,Alejandro,estudiante3,alejo@gmail.com,Alejo1015
+estudiante3,:,;
 estudiante,Interfaz,estui,interfaz@uniandes,9876
+estui,:,;

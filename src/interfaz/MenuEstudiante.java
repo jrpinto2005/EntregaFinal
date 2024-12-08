@@ -63,6 +63,11 @@ public class MenuEstudiante extends JFrame {
         	ventanaSeleccion.setVisible(true);
         	this.setVisible(false);
         });
+        btnActividadesSugeridas.addActionListener(e -> {
+        	VentanaActividadesSugeridas ventanaSugeridas= new VentanaActividadesSugeridas(estudiante, this);
+        	ventanaSugeridas.setVisible(true);
+        	this.setVisible(false);
+        });
         
         
 
