@@ -116,6 +116,14 @@ public class VentanaSeleccionActividad extends JFrame {
                     	ventanaQuiz.setVisible(true);
                     	
                     }
+                    else if (actividad.getTipoActividad().equals("Encuesta"))
+                    {
+                    	Encuesta encuesta = (Encuesta) actividad;
+                    	VentanaHacerEncuesta ventanaEncuesta = new VentanaHacerEncuesta(encuesta,estudiante,this);
+                    	this.setVisible(false);
+                    	ventanaEncuesta.setVisible(true);
+                    	
+                    }
                     
                     
                 } else {

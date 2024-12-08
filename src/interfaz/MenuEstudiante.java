@@ -55,7 +55,7 @@ public class MenuEstudiante extends JFrame {
         btnConsultarProgreso.addActionListener(e -> {
         	double progreso=estudiante.verProgreso();
         	JOptionPane.showMessageDialog(null, "De los "+ estudiante.getEnvios().size() + " que has hecho, han sido completados el "
-        		+ 100*progreso + "porciento", "Exito!", JOptionPane.INFORMATION_MESSAGE);
+        		+ 100*progreso + " porciento", "Exito!", JOptionPane.INFORMATION_MESSAGE);
         	
         });
         btnHacerActividad.addActionListener(e -> {

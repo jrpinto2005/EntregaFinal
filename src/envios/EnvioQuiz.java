@@ -18,6 +18,7 @@ public class EnvioQuiz extends Envio {
 		this.puntajeMaximo = puntajeMaximo;
 		this.notaPorcentaje = notaPorcentaje;
 		this.respuestas = respuestas;
+		calificarQuiz();
 	}
 
 	public void setPuntaje(double puntaje) {

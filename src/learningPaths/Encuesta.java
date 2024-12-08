@@ -33,7 +33,9 @@ public class Encuesta extends Actividad {
 	public Collection<PreguntaEncuesta> getPreguntas() {
 		return preguntas.values();
 	}
-
+	public Map<Integer,PreguntaEncuesta> getMapaPreguntas() {
+		return preguntas;
+	}
 	public void addPregunta(PreguntaEncuesta p) {
 
 		preguntas.put(p.getIdPregunta(), p);

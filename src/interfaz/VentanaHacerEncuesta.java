@@ -4,8 +4,10 @@ import javax.swing.*;
 
 import constructores.ControladorEnvios;
 import envios.Opcion;
+import envios.PreguntaEncuesta;
 import envios.PreguntaOpcionMultiple;
 import exceptions.ActivdadNoEcontradaException;
+import learningPaths.Encuesta;
 import learningPaths.Quiz;
 import usuario.Estudiante;
 
@@ -16,9 +18,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 @SuppressWarnings("serial")
-public class VentanaHacerQuiz extends JFrame {
+public class VentanaHacerEncuesta extends JFrame {
     private int indicePreguntaActual; // Índice de la pregunta actual
-    private Quiz quiz;
+    private Encuesta encuesta;
     private Estudiante estudiante;
     private VentanaSeleccionActividad ventanaSeleccionActividad;
     private List<Integer> respuestas;
@@ -29,16 +31,16 @@ public class VentanaHacerQuiz extends JFrame {
     private JButton btnSiguiente;
     private JButton btnVolver;
 
-    public VentanaHacerQuiz(Quiz quiz, Estudiante estudiante, VentanaSeleccionActividad ventanaSeleccionActividad)
+    public VentanaHacerEncuesta(Encuesta encuesta, Estudiante estudiante, VentanaSeleccionActividad ventanaSeleccionActividad)
     {
-        this.quiz = quiz;
+        this.encuesta = encuesta;
         this.estudiante = estudiante;
         this.ventanaSeleccionActividad = ventanaSeleccionActividad;
         this.indicePreguntaActual = 0;
         this.respuestas= new ArrayList<Integer>();
 
         // Configuración inicial de la ventana
-        setTitle("Hacer Quiz");
+        setTitle("Hacer Encuesta");
         setSize(500, 400);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setLocationRelativeTo(null);
@@ -50,7 +52,7 @@ public class VentanaHacerQuiz extends JFrame {
         lblPregunta.setFont(new Font("Arial", Font.BOLD, 16));
         panelContenido.add(lblPregunta, BorderLayout.NORTH);
 
-        opciones = new JRadioButton[4]; // Máximo 4 opciones
+        opciones = new JRadioButton[5]; // Máximo 5 opciones
         grupoOpciones = new ButtonGroup();
         JPanel panelOpciones = new JPanel(new GridLayout(4, 1, 5, 5));
 
@@ -96,7 +98,7 @@ public class VentanaHacerQuiz extends JFrame {
                     }
                     opciones[i].setVisible(false);
             	}
-                if (indicePreguntaActual < quiz.getPreguntas().size() - 1) {
+                if (indicePreguntaActual < encuesta.getPreguntas().size() - 1) {
                     indicePreguntaActual++;
                     mostrarPregunta();
                 } else {
@@ -114,15 +116,16 @@ public class VentanaHacerQuiz extends JFrame {
      */
     private void mostrarPregunta()
     {
-        PreguntaOpcionMultiple preguntaActual = quiz.getMapaPreguntas().get(indicePreguntaActual+1);
+        PreguntaEncuesta preguntaActual = encuesta.getMapaPreguntas().get(indicePreguntaActual+1);
         lblPregunta.setText("<html>" + (indicePreguntaActual + 1) + ". " + preguntaActual.getTextoPregunta() + "</html>");
 
         // Configurar las opciones
-        List<Opcion> opcionesPregunta = preguntaActual.getOpciones();
         List<String> opcionesString = new ArrayList<String>();
-        for (Opcion opcion: opcionesPregunta)
+        
+        for (int i =1 ; i<6; i++)
         {
-        	opcionesString.add(opcion.getDescripcion());
+        	
+        	opcionesString.add(String.valueOf(i));
         }
         for (int i = 0; i < opcionesString.size(); i++) {
             if (i < opcionesString.size()) {
@@ -146,15 +149,15 @@ public class VentanaHacerQuiz extends JFrame {
     private void finalizarQuiz() {
     	 ControladorEnvios env= new ControladorEnvios();
          try {
- 			env.hacerQuiz(estudiante, quiz.getId() , respuestas);
+ 			env.hacerEncuesta(estudiante, encuesta.getId() , respuestas);
  		} catch (ActivdadNoEcontradaException e) {
  			// TODO Auto-generated catch block
  			e.printStackTrace();
  		}
          JOptionPane.showMessageDialog(
                  this,
-                 "Quiz completado. Gracias por responder.",
-                 "Quiz Finalizado",
+                 "Encuesta completada. Gracias por responder.",
+                 "Encuesta Finalizado",
                  JOptionPane.INFORMATION_MESSAGE
          );
          ventanaSeleccionActividad.setVisible(true);
