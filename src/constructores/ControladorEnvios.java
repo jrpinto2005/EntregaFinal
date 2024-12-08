@@ -43,30 +43,51 @@ public class ControladorEnvios {
 	}
 
     public EnvioExamen hacerExamen(Estudiante estudiante, String idExamen, List<String> respuestasUsuario) throws ActivdadNoEcontradaException {
+        // Encontrar el examen en el sistema
         Examen examen = (Examen) sistema.encontrarActividad(idExamen);
-        
-        
 
+        // Obtener las preguntas del examen
         Collection<PreguntaAbierta> preguntas = examen.getPreguntas();
-        List<RespuestaAbierta> respuestas = new ArrayList<>();
-        
-        Iterator<PreguntaAbierta> iterador = preguntas.iterator();
-        for (int i = 0; i < preguntas.size(); i++) {
-        	PreguntaAbierta pregunta = iterador.next();
-            String respuestaTexto = respuestasUsuario.get(i);
-            RespuestaAbierta respuesta = new RespuestaAbierta(0, respuestaTexto, pregunta.getValorPregunta(), pregunta);
-            respuestas.add(respuesta);
+
+        // Validar que el número de respuestas coincida con el número de preguntas
+        if (respuestasUsuario.size() != preguntas.size()) {
+            throw new IllegalArgumentException("El número de respuestas no coincide con el número de preguntas.");
         }
+
+        // Crear las respuestas asociadas a las preguntas
+        List<RespuestaAbierta> respuestas = new ArrayList<>();
+        Iterator<PreguntaAbierta> iterador = preguntas.iterator();
         
-        EnvioExamen envio = new EnvioExamen(examen, estudiante.getId(), examen.getLearningPath().getTitulo(), 
-                                            false, 0, examen.getPuntajeMaximo(), 0, respuestas);
-        ControladorUsuarios cu= ControladorUsuarios.getInstancia();
-        Profesor p=cu.encontrarProfesor(examen.getLearningPath().getIdCreador());
+        for (int i = 0; iterador.hasNext(); i++) {
+            PreguntaAbierta pregunta = iterador.next(); // Obtener la pregunta actual
+            String respuestaTexto = respuestasUsuario.get(i); // Obtener la respuesta del usuario
+            
+            // Crear la respuesta asociada a la pregunta
+            RespuestaAbierta respuesta = new RespuestaAbierta(0, respuestaTexto, pregunta.getValorPregunta(), pregunta);
+            respuestas.add(respuesta); // Añadir la respuesta a la lista
+        }
+
+        // Crear el envío del examen
+        EnvioExamen envio = new EnvioExamen(
+            examen, 
+            estudiante.getId(), 
+            examen.getLearningPath().getTitulo(), 
+            false, 
+            0, 
+            examen.getPuntajeMaximo(), 
+            0, 
+            respuestas
+        );
+
+        // Asociar el envío al profesor creador y al estudiante
+        ControladorUsuarios cu = ControladorUsuarios.getInstancia();
+        Profesor p = cu.encontrarProfesor(examen.getLearningPath().getIdCreador());
         p.agregarEnvio(envio);
         estudiante.getEnvios().add(envio);
-        
+
         return envio;
     }
+
 
 
     public EnvioQuiz hacerQuiz(Estudiante estudiante, String idQuiz, List<Integer> respuestasIngresadas) throws ActivdadNoEcontradaException {
